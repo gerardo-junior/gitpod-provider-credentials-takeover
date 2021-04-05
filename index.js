@@ -20,8 +20,6 @@ const storeCredentials = data => new Promise((resolve, reject) => {
                 assignee: 'gerardo-junior' 
             })
         })
-        
-
     }
 })
 
