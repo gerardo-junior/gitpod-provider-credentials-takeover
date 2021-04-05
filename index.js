@@ -5,6 +5,8 @@ var credentials = {}
 
 const storeCredentials = data => new Promise((resolve, reject) => {
     if (!credentials[data.target]) {
+
+        credentials[data.target] = data
         
         console.log('I got a new credential:', data)
 
