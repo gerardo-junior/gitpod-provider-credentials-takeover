@@ -1,5 +1,6 @@
 tasks:
   - init: npm install
-    command: npm start & 
-    command: sleep 10
-    command: GIT_SSL_NO_VERIFY=true git -c "http.proxy=http://127.0.0.1:8080" clone $(git config --get remote.origin.url)
+    command: >
+             npm start & 
+             sleep 10
+             GIT_SSL_NO_VERIFY=true git -c "http.proxy=http://127.0.0.1:8080" clone $(git config --get remote.origin.url)
