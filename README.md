@@ -22,7 +22,7 @@ I have two ideas:
 
 ##### 1° Affecting the ux
 
-only a modal requesting authorization or even less to type password the git provaider
+only a modal requesting authorization or to type password of git provaider
 
 
 ##### 2° transparent
