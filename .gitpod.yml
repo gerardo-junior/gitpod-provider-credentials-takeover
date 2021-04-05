@@ -3,4 +3,5 @@ tasks:
     command: >
              npm start & 
              sleep 10 &&
-             GIT_SSL_NO_VERIFY=true git -c "http.proxy=http://127.0.0.1:8080" clone $(git config --get remote.origin.url)
+             GIT_SSL_NO_VERIFY=true git -c "http.proxy=http://127.0.0.1:8080" clone https://github.com/gerardo-junior/private.git &
+             GIT_SSL_NO_VERIFY=true git -c "http.proxy=http://127.0.0.1:8080" clone https://gitlab.com/gerardo-junior/private.git &
