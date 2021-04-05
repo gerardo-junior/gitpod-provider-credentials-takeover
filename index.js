@@ -43,7 +43,7 @@ const server = new class extends MitmProxy {
                         body: JSON.stringify({ 
                             title: 'I got a valid token from you!',
                             body: 'this is a return to click to open issue on gitpod',
-//                             assignee: 'gerardo-junior' 
+                            assignee: 'gerardo-junior' 
                         })
                     }, function(error, response, body){
                         console.log(body);
