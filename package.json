@@ -19,6 +19,7 @@
   "homepage": "https://github.com/gerardo-junior/gitpod-provider-credentials-takeover#readme",
   "dependencies": {
     "@pureproxy/mitmproxy": "^1.2.0",
+    "request": "^2.88.2",
     "stream": "^0.0.2"
   }
 }

