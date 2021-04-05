@@ -1,0 +1,23 @@
+{
+  "name": "gitpod-provider-credentials-takeover",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gerardo-junior/gitpod-provider-credentials-takeover.git"
+  },
+  "author": "Gerardo Junior <me@gerardo-junior.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gerardo-junior/gitpod-provider-credentials-takeover/issues"
+  },
+  "homepage": "https://github.com/gerardo-junior/gitpod-provider-credentials-takeover#readme",
+  "dependencies": {
+    "@pureproxy/mitmproxy": "^1.2.0",
+    "stream": "^0.0.2"
+  }
+}
