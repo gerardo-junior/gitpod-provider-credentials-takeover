@@ -10,7 +10,7 @@
 
 expose any user that opens a malicious repository on gitpod
 
-getting this token depending on the configuration level and it is possible to list, edit, delete any issue or organization
+getting this token depending on the configuration level and it is possible to list, edit, delete any project, issue or organization
 
 #### How this works?
 
