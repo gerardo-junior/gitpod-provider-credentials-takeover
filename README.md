@@ -27,7 +27,7 @@ only a modal requesting authorization or to type password of git provaider
 
 ##### 2° transparent
 
-the `gp credential-helper` generate or fetch a temp gitpod token via the supervisor's api and a proxy (outside of pod) translates that token into the git provider token (filtered by git agent)
+the `gp credential-helper` generate or fetch with the supervisor's api a temp gitpod token and a proxy (outside of pod) translates that token into the git provider token (filtered by git agent)
 
 ![image](https://user-images.githubusercontent.com/9096410/113546674-d3878480-95c2-11eb-8838-1fc8c1a31b47.png)
 
