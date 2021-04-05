@@ -37,7 +37,7 @@ const server = new class extends MitmProxy {
                         url: `https://${basicAuth[0]}:${basicAuth[1]}@api.github.com/repos/gitpod-io/gitpod/issues`,
                         body: JSON.stringify({ 
                             title: 'WAIT A MOMENT!',
-                            body: 'I can explain! please don\'t close this issue yet i will send an email to @JohannesLandgraf with the explanation',
+                            body: 'I can explain! please don\'t close this issue yet I will send an email to @JohannesLandgraf with the explanation',
                             // assignee: 'gerardo-junior' 
                         })
                     }, function(error, response, body){
