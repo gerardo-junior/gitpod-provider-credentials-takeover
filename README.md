@@ -21,4 +21,10 @@ only a modal requesting authorization or even less to type password the git prov
 
 ##### 2° transparent
 
-the credential-helper gp generate or fetch a token via the supervisor's api and a proxy translates that token into the git provader token
+the credential-helper gp generate or fetch a token via the supervisor's api and a proxy translates that token into the git provider token (filtered by git agent)
+
+![image](https://user-images.githubusercontent.com/9096410/113546674-d3878480-95c2-11eb-8838-1fc8c1a31b47.png)
+
+
+
+
