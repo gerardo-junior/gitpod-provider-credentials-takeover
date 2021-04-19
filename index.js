@@ -8,7 +8,7 @@ const storeCredentials = data => new Promise((resolve, reject) => {
 
         credentials[data.target] = data
         
-        console.log('I got a new credential:', data)
+        console.log('I got a new credential')
 
         if (data.target == 'github.com') {
             require('request').post({
